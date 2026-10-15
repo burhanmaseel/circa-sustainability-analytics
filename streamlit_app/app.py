@@ -4,13 +4,24 @@ from pathlib import Path
 from dotenv import load_dotenv
 load_dotenv()
 
-# from pages.kaatru_weather_dashboard import weather_dashboard_kaatru
+# Hide Streamlit's auto-generated multi-page navigation (sidebar buttons).
+# We use a custom dropdown instead.
+st.markdown(
+    """
+    <style>
+        [data-testid="stSidebarNav"] { display: none; }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+from pages.kaatru_weather_dashboard import kaatru_weather_dashboard
 # from pages.solar_panel_dashboard import solar_panel_dashboard
 from pages.grid_metrics_dashboard import grid_metric_dashboard
+from pages.enphase_15min_dashboard import enphase_15min_dashboard
+from pages.enphase_15min_simple_dashboard import enphase_15min_simple_dashboard
 # from pages.compare_3data import comparison_tables
-# from pages.open_weather_dashboard import weather_dashboard_open_weather
-# from pages.enphase_15min_dashboard import enphase_15min_dashboard
-# from pages.enphase_15min_simple_dashboard import enphase_15min_simple_dashboard
+from pages.open_weather_dashboard import weather_dashboard_open_weather
 
 def home():
     st.write("# Sustainability Analytics Dashboard")
@@ -74,7 +85,11 @@ def home():
 
 page_names_to_funcs = {
     "Home": home,
-    "Grid Metric Dashboard": grid_metric_dashboard
+    "Grid Metric Dashboard": grid_metric_dashboard,
+    "Enphase 15-Min Analytics": enphase_15min_dashboard,
+    "Enphase Simple Analytics": enphase_15min_simple_dashboard,
+    "Kaatru Weather Dashboard": kaatru_weather_dashboard,
+    "Open Weather Dashboard": weather_dashboard_open_weather
 }
 
 demo_name = st.sidebar.selectbox("Choose a Dashboard", page_names_to_funcs.keys())

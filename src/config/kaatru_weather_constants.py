@@ -1,0 +1,22 @@
+required_kaatru_weather_columns = [
+    "srvtime",
+    "value.temp",
+    "value.rh",
+    "value.wSpeed",
+    "value.rain",
+    "value.sPM1",
+    "value.sPM2",
+    "value.sPM4",
+    "value.sPM10",
+    "value.sNPMp5",
+    "value.sNPM1",
+    "value.sNPM2",
+    "value.sNPM4",
+    "value.sNPM10",
+    "value.sTPS",
+    "value.sTemp",
+    "value.sRh",
+    "value.aTd0",
+    "value.aTd1",
+    "value.aTd2"
+]

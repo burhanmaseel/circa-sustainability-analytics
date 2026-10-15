@@ -34,3 +34,5 @@ env.bak/
 venv.bak/
 
 data/
+docs/circa_master_db_data.sql
+schema_and_data.sql
